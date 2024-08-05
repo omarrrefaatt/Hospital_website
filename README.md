@@ -107,13 +107,10 @@ The API provides endpoints for various functionalities in the hospital managemen
 
 Contributions are welcome! Please open an issue or submit a pull request to contribute to this project.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact
 
-For any questions or feedback, please contact [Your Name](mailto:your-email@example.com).
+For any questions or feedback, please contact [Omar Ahmed](mailto:omarref3at2031@gmail.com).
 ```
 
 ### How to Use This Template:
