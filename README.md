@@ -112,11 +112,3 @@ Contributions are welcome! Please open an issue or submit a pull request to cont
 
 For any questions or feedback, please contact [Omar Ahmed](mailto:omarref3at2031@gmail.com).
 ```
-
-### How to Use This Template:
-
-1. **Replace placeholders** like `your-username`, `your-repository`, and `your-email@example.com` with actual values.
-2. **Add additional sections** if necessary, such as testing instructions, deployment details, or acknowledgments.
-3. **Save the file** as `README.md` and place it in the root directory of your project.
-
-This README file will help users and collaborators understand how to set up, use, and contribute to your project.
