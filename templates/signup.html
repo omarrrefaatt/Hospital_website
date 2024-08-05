@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+         {% if msg%}
+            <div class="alert alert-warning">{{ msg }}</div>
+         {% endif %}
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{{ url_for('home') }}"><img  src="{{ url_for('static', filename='images/logoname.jpg') }}"alt="" width="150px"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('redirect_to_about') }}">About</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Departments
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{{ url_for('redirect_to_surgery') }}">surgery</a></li>
+              <li><a class="dropdown-item" href="{{ url_for('redirect_to_dental') }}">dental</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{ url_for('contactus') }}">Contact us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+      <div class="form_container">
+        <div class="signup-image">
+            <h3>Already Registered?</h3>
+            <a href="{{ url_for('login') }}"><button class="bn632-hover bn26">Login to your Account</button></a>     
+        </div>
+        <div class="container">
+            <h2>Register to Surgidental</h2>
+            <small>Get your appointments setup directly in Surgidental's site from here!</small>
+            <form action="#" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="email">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Phone Number:</label>
+                    <input type="number" id="phonenumber" name="phonenumber" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">age:</label>
+                  <input type="number" id="age" name="age" required>
+                </div>
+                <div class="form-group">
+                  <label for="email">Blood Type:</label>
+                  <input type="text" id="blood" name="blood" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Re-enter Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                  <label for="password">upload a profile <picture></picture>:</label>
+                  <input type="file" id="profile_picture" name="profile_picture">
+                </div>
+                <a href="#"><button class="w3-button w3-blue w3-border w3-border-white w3-round-large">signin</button></a>  
+            </form>
+        </div>
+
+      </div>
+      <script src="https://fastly.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>    </body>
+</body>
+</html>

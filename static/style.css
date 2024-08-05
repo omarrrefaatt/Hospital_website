@@ -1,0 +1,331 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+body{
+    background-color: white;
+}
+.first{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(../static/images/home.jpg);
+    background-size:cover;
+    background-position: center;         /*for styling header and putting backgroud image and useing linear gradient is for making image blury*/
+    position: relative;
+    background-repeat: repeat;
+    text-align: center;
+}
+.first h1{
+    color: aliceblue;
+    font-size: 5em;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-top: 40vh;
+}
+
+.first p{
+    color: aliceblue;
+
+}
+
+.surgery .image{
+    margin-top: 20 px;
+    width: 100%;
+    height: 30vh;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(../static/images/surgery.jpg);
+    background-size:cover;
+    background-position: center;    
+    background-repeat: repeat;
+    text-align: left;
+}
+.image h1{
+    color: aliceblue;
+    font-size: 3em;
+    font-family:  'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-top: 12vh;
+    padding: 40px;
+
+}
+.image p{
+    color: aliceblue;
+    font-size: 1em;
+    font-family:  'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-right: 50px;
+    padding-left: 50px;
+
+}
+.dental .image{
+    margin-top: 20 px;
+    width: 100%;
+    height: 30vh;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(../static/images/dentist.jpeg);
+    background-size:cover;
+    background-position: center;    
+    background-repeat: repeat;
+    text-align: right;
+}
+.text{
+    text-align: left;
+    padding: 40px;
+    font-size:  1em;
+}
+
+.bn3 {
+    display: inline-block;
+    padding: 0.5em 1.7em;
+    margin: 90px 0.1em 0.1em 0;
+    border: 0.16em solid rgb(255, 255, 255);
+    border-radius: 2em;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    color: #ffffff;
+    text-shadow: 0 0.04em 0.04em rgba(255, 255, 255, 0.253);
+    text-align: center;
+    transition: all 1s;
+    }
+      
+.bn3:hover {
+    color: black;
+    background-color: rgb(255, 255, 255);
+    text-decoration: none;
+    }
+
+.form_container{
+    width: 100%;
+    height: 100vh;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.signup-image{
+    height: 30vh;
+    width: 80%;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(../static/images/signin.jpeg);
+    background-size:cover;
+    background-position: center;         /*for styling header and putting backgroud image and useing linear gradient is for making image blury*/
+    position: relative;
+    background-repeat: repeat;
+    text-align: center;
+    color: #fff;
+    padding: 40px;
+    border-radius: 30px;
+
+}
+.bn632-hover {
+    width: 50%;
+    font-size: 100%;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 20px;
+    height: 55px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 5px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+  }
+  
+.bn632-hover:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+  }
+  
+  .bn632-hover:focus {
+    outline: none;
+  }
+  
+  .bn632-hover.bn26 {
+    background-image: linear-gradient(
+      to right,
+      #25aae1,
+      #4481eb,
+      #04befe,
+      #3f86ed
+    );
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+  }
+
+.container {
+    margin: 10px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.container small{
+    color: dimgrey;
+    font-size: x-small;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+form{
+    width: 80%;
+}
+
+label {
+    display: block;
+    font-weight: lighter;
+    margin-bottom: 5px;
+    color: lightslategray;
+
+    
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color:rgb(231, 240, 244);
+    box-shadow: 0 4px 15px 0 rgba(175, 194, 223, 0.75);
+}
+.container h2{
+    background-color: linear-gradient(
+        to right,
+        #25aae1,
+        #4481eb,
+        #04befe,
+        #3f86ed
+      ); 
+    
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+.doctors_list{
+    text-align: center;
+    
+}
+.intro{
+    text-align: center;
+    height: 80vh;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 30px;
+    box-shadow:0 4px 8px rgba(175, 194, 223, 0.75);
+    padding: 20px;
+    transition: 2s;
+      
+}
+.intro:hover{
+    margin-left: 10%;
+    margin-right: 20%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+    box-shadow: 0 40px 80px  rgba(2, 59, 143, 0.75);
+      
+}
+.intro h2{
+    text-align: center;
+    color: #4481eb;
+    font-size: 2em;
+}
+.doctors_list{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.contact{
+    width: 80%;
+    margin: auto;
+}
+.contact-col{
+    flex-basis: 48%;
+    margin-bottom: 30px;      /*styling and positioning our info */  
+    color: aliceblue;
+}
+.contact-col div{
+    display: flex;
+    align-items: center;    
+    margin-bottom: 30px;     /*postioning every element in our info*/
+
+}
+.contact-col div i{
+    font-size: 2em;
+    margin: 30px 40px;            /*positioning every icon in every element on our info */
+}
+.contact-col div h5{
+    margin-bottom: 5px;
+    font-size: 1em;
+    font-weight: 300;
+}
+.contact-col input,.contact-col textarea{
+    width: 100%;
+    padding: 15px;           /*style and postion user input area*/
+    margin-bottom: 17px;
+    outline: none;
+    border: 1px blue solid;
+}
+  
+.content2{
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(../static/images/home.jpg);
+    color: #ccc;
+    padding: 50px;
+        
+}
+.contactinfo:hover{
+    width: 300px;
+    color: rgba(2, 59, 143, 0.75);
+    background-color: #ccc;
+    box-shadow: 0 40px 80px  rgba(2, 59, 143, 0.75);
+    border-radius: 20px;
+    transition: 0.5s;
+}
+.drlog{
+    height: 120vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(../static/images/home.jpg);
+    background-size:cover;
+    background-position: center;         /*for styling header and putting backgroud image and useing linear gradient is for making image blury*/
+    position: relative;
+    background-repeat: repeat;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+
+}
+.drlog h1{
+    color: #fff;
+    width: 50%;
+    height: 50px;
+    margin: 40px;
+    box-shadow: 0 0px 80px rgba(202, 208, 216, 0.75) ;
+    border-radius: 50px;
+
+}
+.container2 {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 80 80px rgba(163, 157, 157, 0.1);
+    width: 50%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.container2 small{
+    color: dimgrey;
+    font-size: x-small;
+}

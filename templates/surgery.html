@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{{ url_for('home') }}"><img  src="{{ url_for('static', filename='images/logoname.jpg') }}"alt="" width="150px"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('redirect_to_about') }}">About</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Departments
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{{ url_for('redirect_to_surgery') }}">surgery</a></li>
+              <li><a class="dropdown-item" href="{{ url_for('redirect_to_dental') }}">dental</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{ url_for('contactus') }}">Contact us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+<div class="doctor_list">
+  <div class="surgery">
+    <div class="image">
+        <h1>General Surgery Dep.</h1>
+        <p>Top General Surgery Consultants In Egypt</p>
+    </div>
+    <p class="text">
+        The Department of General Surgery mainly specializes in surgeries related to general organs of the body, such as gastro-oesophageal resections.
+        Acute abdominal pain surgeries and exploration.
+        Partial or total removal of the thyroid gland, parathyroid glands, salivary glands and adrenal glands.
+        Breast surgery and breast cancer.
+        Abdominal hernia correction operations (umbilical and surgical) and the inguinal region.
+        Cholecystectomy and exploration of the bile ducts for the treatment of obstructive bile.
+        Resection of pancreatic tumors.
+        Excision of hemorrhoidal tumors, fissures and anal fistulas.
+        Total and partial resection of the thyroid gland in cases of benign and malignant thyroid tumors.
+        Thyroidectomy.
+        Total thyroidectomy
+        Total excision of the lymph nodes in the neck
+        Total and superficial excision of the parotid and inferior salivary glands.
+        Our team of general surgeons also performs some other surgeries, such as varicose veins, circumcision and appendicitis.        
+      </p>
+  </div>
+  <class class="doctors_list">
+    <h1>Doctors in Surgery Dep</h1>
+    <div class="album py-5 bg-body-tertiary">
+        <div class="container">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="col">
+              <div class="card shadow-sm">
+                <img class="bd-placeholder-img card-img-top" width="100%" height="225" role="img" src="{{ url_for('static', filename='images/ashraf-kamal.jpg') }}"><rect width="100%" height="100%" fill="#55595c"></rect></img>
+                <div class="card-body">
+                  <h4>Dr. Ashraf Kamal</h4>
+                  <p class="card-text">Professor -General surgery - Ain Shams University</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <small class="text-body-secondary">9AM - 3PM</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            <div class="col">
+              <div class="card shadow-sm">
+                <img class="bd-placeholder-img card-img-top" width="100%" height="225" role="img"  src="{{ url_for('static', filename='images/mohammed-al-anani.jpg') }}"><rect width="100%" height="100%" fill="#55595c"></rect></img>
+                <div class="card-body">
+                  <h4>Dr. Mohamed El-Anany</h4>
+                  <p class="card-text">Professor -General surgery - Al-Azhar University</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <small class="text-body-secondary">11AM - 3PM</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+            <div class="col">
+              <div class="card shadow-sm">
+                <img class="bd-placeholder-img card-img-top" width="100%" height="225" role="img"  src="{{ url_for('static', filename='images/ashraf-salem.jpg') }}"><rect width="100%" height="100%" fill="#55595c"></rect></img>
+                <div class="card-body">
+                  <h4>Dr. Ashraf Salem</h4>
+                  <p class="card-text">Professor -General surgery - Armed Forces Medicine</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <small class="text-body-secondary">10AM - 5PM</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+    
+    <div class="container-fluid">
+      <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+              <div class="col mb-3">
+                <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
+                  <img  width="100" height="100" role="img" src="{{ url_for('static', filename='images/logo.jpg') }}" alt="Logo">
+                </a>
+                <p class="text-body-secondary">©2024</p>
+              </div>
+          
+              <div class="col mb-3">
+                <h5>For Doctors</h5>
+                <ul class="nav flex-column">
+                  <li class="nav-item mb-2"><a href="/drlogin" class="nav-link p-0 text-body-secondary">Doctor Login</a></li>
+                </ul>
+              </div>
+          
+              <div class="col mb-3">
+                <h5>Department</h5>
+                <ul class="nav flex-column">
+                  <li class="nav-item mb-2"><a href="{{ url_for('redirect_to_surgery') }}" class="nav-link p-0 text-body-secondary">surgery</a></li>
+                  <li class="nav-item mb-2"><a href="{{ url_for('redirect_to_dental') }}" class="nav-link p-0 text-body-secondary">Dental</a></li>
+                </ul>
+              </div>
+          
+              <div class="col mb-3">
+                <h5>Address</h5>
+                <ul class="nav flex-column">
+                  <li class="nav-item mb-2"><a href="https://maps.app.goo.gl/6JiiS1aXHvWo5z5u5" class="nav-link p-0 text-body-secondary">166 90th North st. New Cairo, Egypt.</a></li>
+                  <img class="bd-placeholder-img card-img-top" width="100%" height="225" role="img"  src="{{ url_for('static', filename='images/location.jpg') }}"><rect width="100%" height="100%" fill="#55595c"></rect></img>
+                </ul>
+              </div>
+            </footer>
+          </div>
+          
+      <script src="https://fastly.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>    </body>
+
+    </body>
+</html>

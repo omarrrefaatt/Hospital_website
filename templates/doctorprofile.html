@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.0/fullcalendar.min.js"></script>  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; /* Light Gray */
+            color: #333;
+        }
+
+        .profile-container {
+            background-color: #ffffff;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-details {
+            margin-bottom: 30px;
+        }
+
+        .profile-details h2 {
+            color: #1e90ff; /* Dodger Blue */
+        }
+
+        .profile-image {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-image img {
+            border-radius: 50%;
+            width: 150px; /* Adjust the size as needed */
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .appointment-form {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group button {
+            background-color: #1e90ff; /* Dodger Blue */
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+<div class="profile-container">
+    <div class="profile-header">
+        <h1>Doctor Profile</h1>
+        <img class="profile-image" width="20%" height="225" role="img"  src="{{ url_for('static', filename=doctor['doctor_image_path']) }}"><rect width="20%" height="20%" fill="#55595c"></rect></img>
+    </div>
+
+    <div class="profile-details">
+        <div class="profile-image">
+        </div>
+
+        <h2>Doctor Information</h2>
+        {% if doctor %}
+        <p><strong>ID:</strong>  {{ doctor['doctor_id'] }} </p>
+        <p><strong>Name:</strong>  {{ doctor['doctor_name'] }} </p>
+        <p><strong>Specialization:</strong>{{ doctor['specialization'] }}</p>
+        <p><strong>Department_ID:</strong> {{ doctor['department_id'] }}</p>
+        <p><strong>Email:</strong> {{ doctor['doctor_email'] }}</p>
+        {% endif %}
+    </div>
+    {% if appointments[0]%}
+    <h1>Your upcoming Appointments</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Slot</th>
+                <th>patient_id</th>
+                <th>patient_name</th>
+    
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in appointments %}
+                <tr>
+                    <td>{{ appointment[0] }}</td>
+                    <td>{{ appointment[1] }}</td>
+                    <td>{{ appointment[2] }}</td>
+                    <td>{{ appointment[3] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>you don't have appointments </p>
+    {% endif %}
+    <div id="calendar"></div>
+
+
+        <a href="/logoutdr" class="btn btn-danger">Logout</a>
+
+    
+</body>
+</html>

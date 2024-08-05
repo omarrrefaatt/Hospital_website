@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Login - Hospital Website</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+           {% if msg %}
+            <div class="alert alert-warning">{{ msg }}</div>
+           {% endif %}
+</head>
+<body>
+
+<div class="drlog">
+
+    <h1>welcome Back</h1>
+    <div class="container2">
+        <h2>Login</h2>
+        <small>Welcome back, Doctor. Please log in to access your account.</small>
+        <form action="/drlogin"  method="post">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" placeholder="password" required>
+            </div>
+            <a href="/drlogin"><button  class="bn632-hover bn26"type="submit">signin</button></a>
+            
+        </form>
+        <div class="logout-button">
+            <a href="/" class="btn btn-danger">back</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

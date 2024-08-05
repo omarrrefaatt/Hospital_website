@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Profile</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5; /* Light Gray */
+            color: #333;
+        }
+
+        .profile-container {
+            background-color: #ffffff;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-details {
+            margin-bottom: 30px;
+        }
+
+        .profile-details h2 {
+            color: #1e90ff; /* Dodger Blue */
+        }
+
+        .profile-image {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-image img {
+            border-radius: 50%;
+            width: 150px; /* Adjust the size as needed */
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .appointment-form {
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group button {
+            background-color: #1e90ff; /* Dodger Blue */
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+            
+        }
+        .update-profile-form {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="profile-container">
+    <div class="profile-image">
+
+        
+        <div class="profile-header">
+            <h1>Patient Profile</h1>
+            {% if Patient %}
+            <img class="profile-image" width="20%" height="225" role="img"  src="{{ url_for('static', filename=Patient['profile_picture']) }}"><rect width="20%" height="20%" fill="#55595c"></rect></img>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="profile-details">
+        
+        <h2>Patient Information</h2>
+        {% if Patient %}
+        <p><strong>ID:</strong>  {{ Patient['patient_id'] }} </p>
+        <p><strong>Name:</strong>  {{ Patient['patient_name'] }} </p>
+        <p><strong>Email:</strong>{{ Patient['email'] }}</p>
+        <p><strong>Age:</strong> {{ Patient['age'] }}</p>
+        <p><strong>Blood Type:</strong> {{ Patient['blood_type'] }}</p>
+        {% endif %}
+
+    </div>
+    <h1>Your upcoming Appointments</h1>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Slot</th>
+                <th>Doctor</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in appointments %}
+                <tr>
+                    <td>{{ appointment[0] }}</td>
+                    <td>{{ appointment[1] }}</td>
+                    <td>{{ appointment[2] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if msg %}
+    <div class="alert alert-warning">{{ msg }}</div>
+    {% endif %}
+
+    <div class="appointment-form">
+        <h2>Book an Appointment</h2>
+        <form action="/submit" method="POST">
+            <div class="form-group">
+                <label for="department">Select Department:</label>
+                <select id="department" name="department"  onchange="updateDoctors()">
+                    <option value="surgery">surgery</option>
+                    <option value="dental">dental</option>
+                    <!-- Add more departments as needed -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="doctor">Select Doctor:</label>
+                <select id="doctor" name="doctor">
+                    <option value=1>Dr.Ashraf kamal</option>
+                    <option value=2>Dr.Mohamed El-Anany</option>
+                    <option value=3>Dr.Ashraf Salem</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="date">Select Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="time">Select Time:</label>
+                <select id="time" name="time">
+                    <option value="1PM">1PM</option>
+                    <option value="2PM">2PM</option>
+                    <option value="3PM">3PM</option>
+                    <option value="4PM">4PM</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit">Book Appointment</button>
+            </div>
+        </form>
+        <button class="btn btn-primary" onclick="toggleUpdateForm()">Update Profile</button>
+
+    </div>
+
+    <div class="update-profile-form" id="updateProfileForm">
+        <h2>Update Profile</h2>
+        <form action="/update_profile" method="POST">
+            <div class="form-group">
+                <label for="patient_name">Name:</label>
+                <input type="text" id="patient_name" name="patient_name" value="{{ Patient['patient_name'] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="{{ Patient['email'] }}" required>
+            </div>
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" value="{{ Patient['age'] }}" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Update Profile</button>
+            </div>
+        </form>
+    </div>
+    <div class="logout-button">
+        <a href="/logout" class="btn btn-danger">Logout</a>
+    </div>
+</div>
+<script>
+
+    function toggleUpdateForm() {
+            var form = document.getElementById("updateProfileForm");
+            if (form.style.display === "none" || form.style.display === "") {
+                form.style.display = "block";
+            } else {
+                form.style.display = "none";
+            }
+        }
+
+
+    function updateDoctors() {
+        // Get the selected department
+        var selectedDepartment = document.getElementById("department").value;
+
+        // Get the doctor select element
+        var doctorSelect = document.getElementById("doctor");
+
+        // Clear existing options
+        doctorSelect.innerHTML = "";
+
+        // Add doctors based on the selected department
+        if (selectedDepartment === "surgery") {
+            addOption(doctorSelect,1, "Dr.Ashraf kamal");
+            addOption(doctorSelect, 2, "Dr.Mohamed El-Anany");
+            addOption(doctorSelect, 3, "Dr.Ashraf Salem");
+            // Add more doctors as needed
+        } else if (selectedDepartment === "dental") {
+            addOption(doctorSelect, 5, "Dr.Heba aasal");
+            addOption(doctorSelect, 6, "Dr.Mohammed Al-Toukhi");
+            addOption(doctorSelect, 4, "Dr.Hanan Al Rabea");
+             // Add more doctors as needed
+        }
+        // Add more conditions for other departments
+
+        // Function to add option to select element
+        function addOption(selectElement, value, text) {
+            var option = document.createElement("option");
+            option.value = value;
+            option.text = text;
+            selectElement.add(option);
+        }
+    }
+</script>
+
+</body>
+</html>
